@@ -1,0 +1,45 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "zzz",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+
+    },
+    "windows": [
+      {
+        "title": "绝区零:魔塔",
+        "width": 1825,
+        "height": 1040,
+        "x": 100,
+        "y": 0,
+        "resizable": false,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'"
+
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.zzz.app",
+      "icon": [
+        "icons/zzz.ico"
+      ]
+    }
+  }
+}
