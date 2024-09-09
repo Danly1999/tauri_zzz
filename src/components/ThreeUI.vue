@@ -71,15 +71,33 @@
                     <el-text style="position: absolute;z-index: 1000;right: 5%;bottom: 2%;font-size: 80px;color:grey; opacity: 0.1;">
                         第{{level_id}}层
                     </el-text>
-                    <div v-if="segmented==='任务'" style="height: 300px;overflow:auto">
-                        <div v-for="(item,index) in test" :key="index">
-                            <el-text v-if="item.state!=='未开'" style="font-size: 20px;" :tag="item.state==='完成'?'del':'p'" :type="item.state==='完成'?'info':''">
-                                {{ item.tips }} {{ item.state==='完成'?'(完成)':'' }}
-                            </el-text>
-                            <el-text style="font-size: 30px;color: #ff8c00;">
-                            {{ item.state==='完成'?` + ${item.kane}$`:'' }}
-                            </el-text>
-                        </div>
+                    <div v-if="segmented==='道具'" style="height: 300px;overflow:auto">
+                        <el-card style="max-width: 520px">
+                            <template #header>
+                            <div class="card-header">
+                                <span>快速传送装置</span>
+                            </div>
+                            </template>
+                            <div style="display: grid; grid-template-columns: repeat(5, 1fr);gap: 10px; width: 500px;">
+                                <div v-for="index in 15" :key="index">
+                                    <el-button style="width: 60px;" @click="{level_id=index;SceneCreate();SetPlayerPos(level_pos[index])}">{{ index }}层</el-button>
+                                </div>
+                            </div>
+                        </el-card>
+                        <el-card style="max-width: 520px">
+                            <template #header>
+                            <div class="card-header">
+                                <span>敌人图鉴</span>
+                            </div>
+                            </template>
+                            <div style="display:flex;flex-direction: column">
+                                <div v-for="item in level_enemy[level_id]">
+                                    <img :src="EnemyDatas[item].url" alt="" style="width: 30px;">
+                                    {{ `姓名:${EnemyDatas[item].姓名} 攻击力:${EnemyDatas[item].攻击力} 防御力:${EnemyDatas[item].防御力}` }}
+                                </div>
+                            </div>
+                        </el-card>
+
                     </div>
                     <div v-if="segmented==='简介'">
                         <br>使用vue+three开发的同人游戏,玩的开心 ^ ^.<br><br>
@@ -130,7 +148,8 @@ import InkView from "./InkView.vue";
 import ShopView from "./ShopView.vue";
 import CollectionView from "./CollectionView.vue";
 import { collection_list } from '../assets/CollectionData'
-import { player_data,keys_data,discos_data,enemy_data,can_run,level_id,ToneVueRef } from "../assets/GlobalValue.js";
+import { EnemyDatas } from '../assets/EnemyClass.js';
+import { player_data,keys_data,discos_data,enemy_data,can_run,level_id,ToneVueRef,level_pos,level_enemy } from "../assets/GlobalValue.js";
 export default {
     components:{
         InkView,
@@ -141,6 +160,8 @@ export default {
         ChangeRunState: Function,
         DeletObj: Function,
         SetEnemyData: Function,
+        SceneCreate: Function,
+        SetPlayerPos: Function,
     },
     setup (props) {
         var scene, camera, renderer,composer;
@@ -148,9 +169,9 @@ export default {
         const mouse = new THREE.Vector2();
         const sceneUIRef = ref(null);
         const InkViewRef = ref(null);
-        const segmented = ref('任务');
+        const segmented = ref('道具');
         const collection_data = ref(collection_list);
-        const segmented_options = ['任务','对话','商店','收藏','简介']
+        const segmented_options = ['道具','对话','商店','收藏','简介']
         const initThree = () => {
         // 创建场景
         scene = new THREE.Scene();
@@ -222,7 +243,7 @@ export default {
         
     };
         function AfterShopping() {
-            //segmented.value = '任务'
+            //segmented.value = '道具'
             props.ChangeRunState(true);
             
         }
@@ -277,7 +298,8 @@ export default {
             ShopInk,
             AfterShopping,
             collection_data,
-            player_data,keys_data,discos_data,enemy_data,can_run ,level_id
+            EnemyDatas,
+            player_data,keys_data,discos_data,enemy_data,can_run ,level_id,level_pos,level_enemy
         }
     }
 }

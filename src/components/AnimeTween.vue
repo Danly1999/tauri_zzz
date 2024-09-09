@@ -12,7 +12,7 @@
           <ToneVue ref="ToneVueRef"/>
           <audio ref="bgm" src="/bgm/19.mp3" loop autoplay></audio>
         </div>
-        <ThreeUI ref="ThreeUIRef" :player_data="player_data" :enemy_data="enemy_data" :keys_data="keys_data" :can_run="can_run" :discos_data="discos_data" :ChangeRunState="ChangeRunState" :DeletObj="DeletObj" :SetEnemyData="SetEnemyData"/>
+        <ThreeUI ref="ThreeUIRef" :player_data="player_data" :enemy_data="enemy_data" :keys_data="keys_data" :can_run="can_run" :discos_data="discos_data" :ChangeRunState="ChangeRunState" :DeletObj="DeletObj" :SetEnemyData="SetEnemyData" :SceneCreate="SceneCreate" :SetPlayerPos="SetPlayerPos"/>
       </div>
     </div>
   </template>
@@ -101,6 +101,9 @@
         animate();
         
       };
+      function SetPlayerPos(pos) {
+        player_obj.position.set(pos.x,pos.y,1)
+      }
       //生成场景中的各种元素,初始化和切换关卡时调用
       function SceneCreate() {
         for (let index = 0; index < sceneObj_list.length; index++) {
@@ -379,6 +382,7 @@
         toggleBgm,
         isBgmPlaying,
         isDeveloperMode,
+        SetPlayerPos
       };
     }
   };
