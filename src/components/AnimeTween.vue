@@ -325,7 +325,7 @@
         }
           if(found_data.tital === '怪')
           {
-            enemy_data.value = {url:found_data.url,姓名:found_data.姓名,生命值:found_data.生命值,攻击力:found_data.攻击力,防御力:found_data.防御力};
+            enemy_data.value = {url:found_data.url,index:found_data.index,姓名:found_data.姓名,生命值:found_data.生命值,攻击力:found_data.攻击力,防御力:found_data.防御力};
           }else
           {
             enemy_data.value = {url:found_data.url,姓名:found_data.姓名};
