@@ -78,6 +78,7 @@ const EnemyDatas =
     {index: 53, id:'1', kane:2, 姓名: "传送门", url: '/gif/下楼.gif', surl:'/obj/传送门.jpg', width:3, height:4, level_id:10, tital:'飞'},
     {index: 54, id:'2', kane:2, 姓名: "初始提示", url: '/obj/提示.jpg', surl:'/obj/初始提示.jpg', width:3, height:4, tital:'货'},
     {index: 55, id:'3', kane:2, 姓名: "法厄同", url: '/obj/邦布.jpg', surl:'/obj/法厄同.jpg', width:4, height:4, tital:'货'},
-    {index: 56, id:'4', kane:2, 姓名: "永久商店", url:'/obj/幺次性商店.jpg', surl:'/obj/商店.jpg', width:4, height:5, tital:'货'}
+    {index: 56, id:'4', kane:2, 姓名: "永久商店", url:'/obj/幺次性商店.jpg', surl:'/obj/商店.jpg', width:4, height:5, tital:'货'},
+    {index: 57, id:'5', kane:2, 姓名: "传送装置", url:'/obj/提示.jpg', surl:'/obj/初始提示.jpg', width:3, height:4, tital:'货'}
 ];
 export {Enemy,EnemyDatas};

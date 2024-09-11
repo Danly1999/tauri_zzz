@@ -28,11 +28,12 @@
   import * as DATA from "../assets/ReadCSV.js";
   import { test } from '../assets/TaskEvent';
   import { collection_list } from '../assets/CollectionData.js';
-  import { player_data,keys_data,can_run } from "../assets/GlobalValue.js";
+  import { player_data,keys_data,can_run,props_options } from "../assets/GlobalValue.js";
   export default {
     props: {
       AfterShopping: Function,
       DeletObj: Function,
+      props_options: Object,
     },
     setup(props) {
       const story = ref(null);
@@ -68,7 +69,6 @@
         story.value.variablesState['stop']?ink_bools.need_stop = true:ink_bools.need_stop = false;
         story.value.variablesState['delete']?ink_bools.need_dele = true:ink_bools.need_dele = false;
         
-        if(story.value.variablesState['test_id']!=null){(test.value[story.value.variablesState['test_id']].state = story.value.variablesState['test_state'])};
         if(story.value.variablesState['weapon_camp']!=null){(collection_list.value[story.value.variablesState['weapon_camp']].equipment[story.value.variablesState['weapon_id']].state = story.value.variablesState['weapon_state'])};
 
         if(story.value.variablesState['kane']!=null){(player_data.value.$ = story.value.variablesState['kane'])};
@@ -135,9 +135,9 @@
           if(story.value.variablesState['act']!=null) story.value.variablesState['act']=player_data.value.攻击力;
           if(story.value.variablesState['def']!=null) story.value.variablesState['def']=player_data.value.防御力;
 
-          if(story.value.variablesState['test_id']!=null)
+          if(story.value.variablesState['prop_id']!=null)
           {
-            story.value.variablesState['test_state'] &&= test.value[story.value.variablesState['test_id']].state;
+            props_options.value.push(story.value.variablesState['prop_id']);
           }
           if(story.value.variablesState['weapon_camp']!=null)
           {

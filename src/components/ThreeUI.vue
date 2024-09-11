@@ -72,35 +72,30 @@
                         第{{level_id}}层
                     </el-text>
                     <div v-if="segmented==='道具'" style="height: 300px;overflow:auto">
-                        <el-card style="max-width: 520px">
+                        <el-card v-if="props_options.length !== 0" style="max-width: 520px">
                             <template #header>
-                            <div class="card-header">
-                                <span>快速传送装置</span>
-                            </div>
+                                <el-segmented v-model="props_obj" :options="props_options" block style="font-size: 20px;"/>
                             </template>
-                            <div style="display: grid; grid-template-columns: repeat(5, 1fr);gap: 10px; width: 500px;">
+                            <div v-if="props_obj === '传送装置'" style="display: grid; grid-template-columns: repeat(5, 1fr);gap: 10px; width: 500px;">
                                 <div v-for="index in 15" :key="index">
                                     <el-button style="width: 60px;" @click="{level_id=index;SceneCreate();SetPlayerPos(level_pos[index])}">{{ index }}层</el-button>
                                 </div>
                             </div>
-                        </el-card>
-                        <el-card style="max-width: 520px">
-                            <template #header>
-                            <div class="card-header">
-                                <span>敌人图鉴</span>
-                            </div>
-                            </template>
-                            <div style="display:flex;flex-direction: column">
+                            <div v-if="props_obj === '敌人信息'" style="display:flex;flex-direction: column">
                                 <div v-for="item in level_enemy[level_id]">
                                     <img :src="EnemyDatas[item].url" alt="" style="width: 30px;">
-                                    {{ `姓名:${EnemyDatas[item].姓名} 攻击力:${EnemyDatas[item].攻击力} 防御力:${EnemyDatas[item].防御力}` }}
+                                    <el-text style="font-size: 20px;">
+                                        {{ ` 姓名:${EnemyDatas[item].姓名} 生命值:${EnemyDatas[item].生命值} 攻击力:${EnemyDatas[item].攻击力} 防御力:${EnemyDatas[item].防御力}` }}
+                                    </el-text>
                                 </div>
                             </div>
                         </el-card>
 
                     </div>
                     <div v-if="segmented==='简介'">
-                        <br>使用vue+three开发的同人游戏,玩的开心 ^ ^.<br><br>
+                        <br>使用vue+three开发的同人游戏,玩的开心 ^ ^.<br>
+                            F5重置游戏,卡关了就重来吧QAQ
+                        <br>
                     </div>
                     <div v-if="segmented==='商店'"style="height: 230px;">
                         <ShopView :discos_data="discos_data" :player_data="player_data"/>
@@ -149,7 +144,7 @@ import ShopView from "./ShopView.vue";
 import CollectionView from "./CollectionView.vue";
 import { collection_list } from '../assets/CollectionData'
 import { EnemyDatas } from '../assets/EnemyClass.js';
-import { player_data,keys_data,discos_data,enemy_data,can_run,level_id,ToneVueRef,level_pos,level_enemy } from "../assets/GlobalValue.js";
+import { player_data,keys_data,discos_data,enemy_data,can_run,level_id,ToneVueRef,level_pos,level_enemy,props_options } from "../assets/GlobalValue.js";
 export default {
     components:{
         InkView,
@@ -170,6 +165,7 @@ export default {
         const sceneUIRef = ref(null);
         const InkViewRef = ref(null);
         const segmented = ref('道具');
+        const props_obj = ref('');
         const collection_data = ref(collection_list);
         const segmented_options = ['道具','对话','商店','收藏','简介']
         const initThree = () => {
@@ -293,6 +289,8 @@ export default {
             ViewDisco,
             segmented_options,
             segmented,
+            props_options,
+            props_obj,
             test,
             InkViewRef,
             ShopInk,

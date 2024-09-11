@@ -17,6 +17,7 @@ const enemy_data = ref({url:''});
 const enemy_mat_list = ref([]);
 const level_id = ref(0);
 const can_run = ref(true);
+const props_options = ref([])
 const level_pos = 
 [
     new Vector2(5,10),
@@ -54,4 +55,4 @@ const level_enemy =
     [30,32,39],
     [25,31,32,34,36,37],
 ];
-export{sceneContainer,ThreeUIRef,ToneVueRef,player_data,keys_data,discos_data,enemy_data,enemy_mat_list,level_id,can_run,level_pos,level_enemy}
+export{sceneContainer,ThreeUIRef,ToneVueRef,player_data,keys_data,discos_data,enemy_data,enemy_mat_list,level_id,can_run,level_pos,level_enemy,props_options}
