@@ -39,7 +39,7 @@ const EnemyDatas =
     {index: 14, id:'O', kane:1, 姓名: "钱包", url:'/obj/小钱.jpg', surl:'/obj/钱.jpg', width:4, height:4, tital:'货'},
     {index: 15, id:'P', kane:1, 姓名: "盗猎客", 生命值:50, 攻击力:20, 防御力:1, url:'/enemy/盗猎客.jpg', tital:'怪'},
     {index: 16, id:'Q', kane:1, 姓名: "纵火犯", 生命值:50, 攻击力:20, 防御力:1, url:'/enemy/纵火犯.jpg', tital:'怪'},
-    {index: 17, id:'R', kane:1, 姓名: "袭击者", 生命值:70, 攻击力:15, 防御力:2, url:'/enemy/袭击者.jpg', tital:'怪'},
+    {index: 17, id:'R', kane:1, 姓名: "袭击者", 生命值:70, 攻击力:15, 防御力:2, url:'/enemy/袭击者.png', tital:'怪'},
     {index: 18, id:'S', kane:1, 姓名: "掠夺者", 生命值:100, 攻击力:20, 防御力:5, url:'/enemy/掠夺者.jpg', tital:'怪'},
     {index: 19, id:'T', kane:1, 姓名: "戍卫猎兵", 生命值:110, 攻击力:30, 防御力:5, url:'/enemy/戍卫猎兵.jpg', tital:'怪'},
     {index: 20, id:'U', kane:2, 姓名: "魁梧打手", 生命值:200, 攻击力:70, 防御力:0, url:'/enemy/魁梧打手.jpg', tital:'怪'},
