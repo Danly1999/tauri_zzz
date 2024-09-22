@@ -1,0 +1,1 @@
+{"inkVersion":21,"root":[["^大礼物! ","#","^other ","/#","#","^铃.png","/#","\n","^——解开了某处的大门 ","#","^player","/#","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev",true,{"VAR=":"stop"},true,{"VAR=":"delete"},"str","^A","/str",{"VAR=":"target"},2,{"VAR=":"lid"},1,{"VAR=":"xpos"},4,{"VAR=":"ypos"},"/ev","end",null],"#f":1}],"listDefs":{}}

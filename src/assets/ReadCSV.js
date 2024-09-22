@@ -20,7 +20,9 @@ import {Data} from './MapData.js'
     var rows14 = map.data14.trim().split('\n').reverse();
     var rows15 = map.data15.trim().split('\n').reverse();
     var rows16 = map.data16.trim().split('\n').reverse();
-    const row_list = [rows0,rows1,rows2,rows3,rows4,rows5,rows6,rows7,rows8,rows9,rows10,rows11,rows12,rows13,rows14,rows15,rows16];
+    var rows17 = map.data17.trim().split('\n').reverse();
+    var rows18 = map.data18.trim().split('\n').reverse();
+    const row_list = [rows0,rows1,rows2,rows3,rows4,rows5,rows6,rows7,rows8,rows9,rows10,rows11,rows12,rows13,rows14,rows15,rows16,rows17,rows18];
 
     function MapLetterToNumber(letter) {
 // 'a' - 'z'：97 - 122

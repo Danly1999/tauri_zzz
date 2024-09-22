@@ -165,7 +165,7 @@ export default {
         const sceneUIRef = ref(null);
         const InkViewRef = ref(null);
         const segmented = ref('道具');
-        const props_obj = ref('');
+        const props_obj = ref('敌人信息');
         const collection_data = ref(collection_list);
         const segmented_options = ['道具','对话','商店','收藏','简介']
         const initThree = () => {

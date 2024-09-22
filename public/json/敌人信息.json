@@ -1,1 +1,1 @@
-{"inkVersion":21,"root":[["^获得道具\"敌人信息\"","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^敌人信息","/str",{"VAR=":"prop_id"},"/ev","end",null],"#f":1}],"listDefs":{}}
+{"inkVersion":21,"root":[["^获得道具\"敌人信息\"","\n","end",["done",{"#f":5,"#n":"g-0"}],null],"done",{"global decl":["ev","str","^敌人信息","/str",{"VAR=":"prop_id"},true,{"VAR=":"delete"},"/ev","end",null],"#f":1}],"listDefs":{}}

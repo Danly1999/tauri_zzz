@@ -19,7 +19,8 @@ import {Data} from './MapData.js'
     var rows13 = map.data13.trim().split('\n');
     var rows14 = map.data14.trim().split('\n');
     var rows15 = map.data15.trim().split('\n');
-    const row_list = [rows0,rows1,rows2,rows3,rows4,rows5,rows6,rows7,rows8,rows9,rows10,rows11,rows12,rows13,rows14,rows15];
+    var rows16 = map.data16.trim().split('\n').reverse();
+    const row_list = [rows0,rows1,rows2,rows3,rows4,rows5,rows6,rows7,rows8,rows9,rows10,rows11,rows12,rows13,rows14,rows15,rows16];
 
     function MapLetterToNumber(letter) {
 // 'a' - 'z'：97 - 122

@@ -15,6 +15,7 @@
     "@tweenjs/tween.js": "^23.1.2",
     "axios": "^1.7.2",
     "element-plus": "^2.7.7",
+    "express": "^4.21.0",
     "inkjs": "^2.2.5",
     "lodash": "^4.17.21",
     "papaparse": "^5.4.1",
